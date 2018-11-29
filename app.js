@@ -33,6 +33,7 @@ app.get('/', function (req, res) {
   res.render("home")
 })
 
+var results;
 
 app.get('/artists', function (req, res) {
     
@@ -42,12 +43,18 @@ app.get('/artists', function (req, res) {
     spotifyApi.searchArtists(req.query.artist)
     .then(data => {
       console.log("wouhou") 
-      //res.send(data);
+      
+      let results = {
+        artists: data.body.artists.items
+      }
+      console.log(results)
+      res.render('artists',results);
+      
     })
     .catch(err => {
         console.log("ouha")
     })
-    res.render('artists');
+    
 })
 
 
