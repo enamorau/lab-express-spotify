@@ -15,7 +15,9 @@
 <body>
    
 <div class="cards-container">
-  {{#each artists}}{{> artist}}{{/each}}
+  {{#each artists}}
+  <div class="cards">{{> artist}}</div>
+  {{/each}}
 </div>
 
 </body>
